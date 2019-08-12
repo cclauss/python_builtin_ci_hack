@@ -22,7 +22,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Format with black
-      # if: ${{ matrix.python-version }} > "3.5"
+      if: matrix.python-version >= "3.6"
       run: |
         black --check . || true
     - name: Lint with flake8
@@ -31,6 +31,7 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Type check with mypy
+      if: matrix.python-version >= "3.5"
       run: |
         pip install mypy
         mypy --ignore-missing-imports .
