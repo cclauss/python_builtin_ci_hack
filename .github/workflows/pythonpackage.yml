@@ -22,7 +22,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Format with black
-      if: ${{ matrix.python-version }} > "3.5"
+      # if: ${{ matrix.python-version }} > "3.5"
       run: |
         black --check . || true
     - name: Lint with flake8
