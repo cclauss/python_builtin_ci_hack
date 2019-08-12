@@ -24,6 +24,7 @@ jobs:
     - name: Format with black
       if: matrix.python-version >= 3.6
       run: |
+        pip install black
         black --check . || true
     - name: Lint with flake8
       run: |
