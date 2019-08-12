@@ -5,7 +5,6 @@ on: [push]
 jobs:
   build:
 
-    python-version: 3.7
     # runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
